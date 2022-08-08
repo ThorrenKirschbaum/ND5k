@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-
-# coding: utf-8
-
-
-# before switching to python on hemera5: change DataLoader import, comment out get_ipython()...
-
-
 # # Imports
 
 import datetime
@@ -28,9 +20,8 @@ from torch.nn import BatchNorm1d as BN
 from torch.nn import Sequential as Seq, Linear, LeakyReLU, GRU
 from torch_geometric.data import Data, Dataset, InMemoryDataset
 from torch_geometric.data import DataLoader  # !#
+# from torch_geometric.loader import DataLoader #!# depending on torch geometric version
 from torch_geometric.nn import NNConv, Set2Set
-
-# from torch_geometric.loader import DataLoader
 
 # first change directory to THIS file for safety:
 os.chdir(os.path.dirname(os.path.abspath(__file__)))  # !
@@ -1041,8 +1032,6 @@ def plot_errors_training(model, data_loader, target, norm_targets, seed, epoch, 
     from matplotlib.colors import ListedColormap
     from matplotlib.lines import Line2D
     import matplotlib.pyplot as plt
-    # get_ipython().run_line_magic('matplotlib', 'inline')
-    # !
     plt.rc('font', size=15)
 
     # generic plot
@@ -1518,8 +1507,6 @@ def train_new_network(target, norm_targets, hyperparameters, logger, fingerprint
 
     if plot_losses:
         import matplotlib.pyplot as plt
-        # get_ipython().run_line_magic('matplotlib', 'inline')
-        # !
         plt.rc('font', size=15)
 
         plt.figure(figsize=(7.5, 5))
